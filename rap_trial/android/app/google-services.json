@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "652455850404",
+    "project_id": "raptrial-4a957",
+    "storage_bucket": "raptrial-4a957.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:652455850404:android:794f102492c562e5bc9131",
+        "android_client_info": {
+          "package_name": "com.example.rap_trial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "652455850404-7p8b5p369eustcujn3obmh0vst79vket.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqUx1nb_8s2yeemdvM_V9trevrq7NRKeo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "652455850404-7p8b5p369eustcujn3obmh0vst79vket.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "652455850404-9kh6ifbg6g60rijp3fmmrcjk18dqngna.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.rapTrial"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

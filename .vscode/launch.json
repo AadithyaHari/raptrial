@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "rap_trial",
+            "cwd": "rap_trial",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "rap_trial (profile mode)",
+            "cwd": "rap_trial",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "rap_trial (release mode)",
+            "cwd": "rap_trial",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
