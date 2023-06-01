@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
           duration: 1000,
           splashTransition: SplashTransition.fadeTransition,
           backgroundColor: Colors.black,
-          nextScreen: const MyLoginPage()),
+          nextScreen: const ProfileSetup()),
     );
   }
 }
