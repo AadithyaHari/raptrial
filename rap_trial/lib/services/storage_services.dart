@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/foundation.dart';
@@ -6,28 +7,39 @@ import 'package:flutter/material.dart';
 class StorageMethods {
   final FirebaseStorage _storage = FirebaseStorage.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  
   Uint8List? file;
 
   // adding image to firebase storage
-  Future<String> uploadImageToStorage(
-      String childName, Uint8List file, bool isPost) async {
-    Reference ref =
-        _storage.ref().child(childName).child(_auth.currentUser!.uid);
-
+  Future<String> uploadImage(
+      String image, String profile, Uint8List file) async {
+    Reference ref = _storage
+        .ref()
+        .child(image)
+        .child(profile)
+        .child(FirebaseAuth.instance.currentUser!.uid);
     UploadTask uploadTask = ref.putData(file);
-
-    print("debug image 1");
-
-    try {
-       print("debug image 2");
-      await UploadTask;
-       print("debug image 3");
-    } on FirebaseException catch (e) {
-      print(e.toString());
-    }
-
-    TaskSnapshot snap = await uploadTask;
-    String downloadUrl = await snap.ref.getDownloadURL();
+    TaskSnapshot snapshot = await uploadTask;
+    String downloadUrl = await snapshot.ref.getDownloadURL();
     return downloadUrl;
+  }
+
+  Future<String> addImage({required Uint8List file}) async {
+    try {
+      String res = "something went wrong";
+      String imageUrl =
+          await uploadImage('Image Folder', "profile Image", file);
+      FirebaseFirestore.instance
+          .collection('Players')
+          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .update(
+        {'imageLink': imageUrl},
+      );
+      res = "success";
+      return res;
+    } catch (e) {
+      return e.toString();
+    }
   }
 }

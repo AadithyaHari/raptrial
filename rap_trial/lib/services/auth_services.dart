@@ -9,7 +9,7 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 
 class AuthServices {
   static final _firabaseAuth = FirebaseAuth.instance;
-  
+
 
   static Future<String> signup(
       {required String email, required String password}) async {
@@ -31,7 +31,7 @@ class AuthServices {
     String res = "Something went wrong";
 
     try {
-      UserCredential _cred = await _firabaseAuth.signInWithEmailAndPassword(
+      UserCredential cred = await _firabaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
       res = "Success";
     } catch (e) {
@@ -41,20 +41,14 @@ class AuthServices {
     return res;
   }
 
-
- 
-
-static Future<bool> checkEmailExists(
-  String email) async {
-  try {
-    List<String> signInMethods = await _firabaseAuth.fetchSignInMethodsForEmail(email);
-    return signInMethods.isNotEmpty;
-  } catch (e) {
-    print('Error checking email existence: $e');
-    return false; // Return false in case of any error
+  static Future<bool> checkEmailExists(String email) async {
+    try {
+      List<String> signInMethods =
+          await _firabaseAuth.fetchSignInMethodsForEmail(email);
+      return signInMethods.isNotEmpty;
+    } catch (e) {
+      print('Error checking email existence: $e');
+      return false; // Return false in case of any error
+    }
   }
-}
-
-
-
 }

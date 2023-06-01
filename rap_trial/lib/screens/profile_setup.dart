@@ -66,6 +66,10 @@ class _ProfileSetupState extends State<ProfileSetup> {
     });
   }
 
+  void saveprofile() async {
+    String resp = await StorageMethods().addImage(file: _image!);
+  }
+
   void showSnackBar(String text) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         behavior: SnackBarBehavior.floating,
@@ -414,7 +418,6 @@ class _ProfileSetupState extends State<ProfileSetup> {
                       country: _countryController.text.trim(),
                       state: _stateController.text.trim(),
                       pincode: _pincodeController.text.trim(),
-                      file: _image!
                       );
 
                   if (_fullnameController.text.trim().isEmpty) {
@@ -431,6 +434,7 @@ class _ProfileSetupState extends State<ProfileSetup> {
                     showSnackBar("Please enter your pincode");
                   } else {
                     registeruser(user);
+                    saveprofile();
                     //StorageMethods();
                     Get.to(() => const PlayerPosition());
                   }

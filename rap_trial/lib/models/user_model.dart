@@ -9,8 +9,7 @@ class UserModel {
   final String country;
   final String state;
   final String pincode;
-  final bool canEdit = true;
-  Uint8List file;
+ 
 
 
    UserModel({
@@ -21,7 +20,7 @@ class UserModel {
     required this.country,
     required this.state,
     required this.pincode,
-    required this.file
+    
   });
 
   toJson() {
@@ -32,7 +31,7 @@ class UserModel {
       "country": country,
       "State": state,
       "Pincode": pincode,
-      "image": file,
+      
     };
   }
 }
