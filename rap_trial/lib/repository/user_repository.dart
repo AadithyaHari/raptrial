@@ -11,22 +11,12 @@ class UserRepository extends GetxController {
 
   Future<void> registeruser(UserModel user) async {
     try {
-      await _db
-          .collection("Players")
-          .add(user.toJson())
-          .whenComplete(
+      await _db.collection("Players").add(user.toJson()).whenComplete(
             () => Get.snackbar("Success", "Your account has been created.",
                 snackPosition: SnackPosition.BOTTOM,
-                backgroundColor: Colors.greenAccent.withOpacity(8.1),
-                colorText: Colors.black),
-          )
-          .catchError((error, stackTrace) {
-        Get.snackbar("Error", "Something went wrong. Try again",
-            snackPosition: SnackPosition.BOTTOM,
-            backgroundColor: Colors.greenAccent.withOpacity(0.1),
-            colorText: Colors.black);
-        print(error.toString());
-      });
+                backgroundColor: Colors.greenAccent.withOpacity(0.1),
+                colorText: Colors.white),
+          );
     } catch (e) {
       print(e);
     }

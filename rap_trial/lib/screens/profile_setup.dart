@@ -433,7 +433,8 @@ class _ProfileSetupState extends State<ProfileSetup> {
                   } else if (_pincodeController.text.trim().isEmpty) {
                     showSnackBar("Please enter your pincode");
                   } else {
-                    registeruser(user);
+                    await registeruser(user);
+                    
                     saveprofile();
                     //StorageMethods();
                     Get.to(() => const PlayerPosition());

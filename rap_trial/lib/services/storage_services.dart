@@ -30,9 +30,9 @@ class StorageMethods {
       String res = "something went wrong";
       String imageUrl =
           await uploadImage('Image Folder', "profile Image", file);
-      FirebaseFirestore.instance
+      _firestore
           .collection('Players')
-          .doc(FirebaseAuth.instance.currentUser!.uid)
+          .doc(_auth.currentUser!.uid)
           .update(
         {'imageLink': imageUrl},
       );

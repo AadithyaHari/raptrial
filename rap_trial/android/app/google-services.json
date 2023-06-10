@@ -1,41 +1,34 @@
 {
   "project_info": {
-    "project_number": "652455850404",
-    "project_id": "raptrial-4a957",
-    "storage_bucket": "raptrial-4a957.appspot.com"
+    "project_number": "180861816265",
+    "project_id": "rap2-b4c89",
+    "storage_bucket": "rap2-b4c89.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:652455850404:android:794f102492c562e5bc9131",
+        "mobilesdk_app_id": "1:180861816265:android:2d7806610e8ef2ad21ac18",
         "android_client_info": {
           "package_name": "com.example.rap_trial"
         }
       },
       "oauth_client": [
         {
-          "client_id": "652455850404-7p8b5p369eustcujn3obmh0vst79vket.apps.googleusercontent.com",
+          "client_id": "180861816265-lm2qb2lfvm46cr0uj8kq31r7li3gek0t.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCqUx1nb_8s2yeemdvM_V9trevrq7NRKeo"
+          "current_key": "AIzaSyCAgUaI6GkNIZuoYEVRPkiY95VS8UrKVoQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "652455850404-7p8b5p369eustcujn3obmh0vst79vket.apps.googleusercontent.com",
+              "client_id": "180861816265-lm2qb2lfvm46cr0uj8kq31r7li3gek0t.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "652455850404-9kh6ifbg6g60rijp3fmmrcjk18dqngna.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.rapTrial"
-              }
             }
           ]
         }
