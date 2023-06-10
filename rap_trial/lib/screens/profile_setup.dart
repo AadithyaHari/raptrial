@@ -23,11 +23,12 @@ class ProfileSetup extends StatefulWidget {
 
 class _ProfileSetupState extends State<ProfileSetup> {
   String? gender;
-  int _groupvalue = 0;
+  int  _groupvalue = 0;
   Uint8List? _image;
   Uint8List? file;
   final FirebaseStorage _storage = FirebaseStorage.instance;
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final _db = FirebaseFirestore.instance;
   final _mobilenoController = TextEditingController();
 
   @override
@@ -412,13 +413,13 @@ class _ProfileSetupState extends State<ProfileSetup> {
               GestureDetector(
                 onTap: () async {
                   final user = UserModel(
-                      fullname: _fullnameController.text.trim(),
-                      dob: _dobController.text.trim(),
-                      mobileno: _mobilenoController.text.trim(),
-                      country: _countryController.text.trim(),
-                      state: _stateController.text.trim(),
-                      pincode: _pincodeController.text.trim(),
-                      );
+                    fullname: _fullnameController.text.trim(),
+                    dob: _dobController.text.trim(),
+                    mobileno: _mobilenoController.text.trim(),
+                    country: _countryController.text.trim(),
+                    state: _stateController.text.trim(),
+                    pincode: _pincodeController.text.trim(),
+                  );
 
                   if (_fullnameController.text.trim().isEmpty) {
                     showSnackBar("Please enter your full name");
@@ -433,8 +434,26 @@ class _ProfileSetupState extends State<ProfileSetup> {
                   } else if (_pincodeController.text.trim().isEmpty) {
                     showSnackBar("Please enter your pincode");
                   } else {
-                    await registeruser(user);
-                    
+                     await registeruser(user);
+
+                    if (_groupvalue == 0) {
+                      _db
+                          .collection('Players')
+                          .doc(FirebaseAuth.instance.currentUser!.uid)
+                          .update({"gender": "Male"});
+                    } else if (_groupvalue == 1) {
+                      _db
+                          .collection('Players')
+                          .doc(FirebaseAuth.instance.currentUser!.uid)
+                          .update({"gender": "Female"});
+                    } else{
+                       _db
+                          .collection('Players')
+                          .doc(FirebaseAuth.instance.currentUser!.uid)
+                          .update({"gender": "Other"});
+                    }
+                   
+
                     saveprofile();
                     //StorageMethods();
                     Get.to(() => const PlayerPosition());

@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:rap_trial/screens/player_profile.dart';
 import 'package:rap_trial/screens/profile_setup.dart';
@@ -10,6 +12,7 @@ class PlayerPosition extends StatefulWidget {
 }
 
 class _PlayerPositionState extends State<PlayerPosition> {
+  final _db = FirebaseFirestore.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,7 +79,15 @@ class _PlayerPositionState extends State<PlayerPosition> {
               left: 140,
               top: 30,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  _db
+                      .collection('Players')
+                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      .update({
+                    "position": "Centre Forward"
+                   
+                  });
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 43, 42, 42),
                   minimumSize: const Size(100, 60),
@@ -89,7 +100,16 @@ class _PlayerPositionState extends State<PlayerPosition> {
               left: 20,
               top: 130,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+
+                  _db
+                      .collection('Players')
+                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      .update({
+                    "position": "Left Wing"
+                   
+                  });
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 43, 42, 42),
                   minimumSize: const Size(100, 60),
@@ -102,7 +122,16 @@ class _PlayerPositionState extends State<PlayerPosition> {
               left: 280,
               top: 130,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+
+                  _db
+                      .collection('Players')
+                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      .update({
+                    "position": "Right Wing"
+                   
+                  });
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 43, 42, 42),
                   minimumSize: const Size(100, 60),
@@ -115,7 +144,15 @@ class _PlayerPositionState extends State<PlayerPosition> {
               left: 20,
               top: 300,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  _db
+                      .collection('Players')
+                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      .update({
+                    "position": "Left Mid"
+                   
+                  });
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 43, 42, 42),
                   minimumSize: const Size(100, 60),
@@ -128,7 +165,16 @@ class _PlayerPositionState extends State<PlayerPosition> {
               left: 150,
               top: 300,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+
+                  _db
+                      .collection('Players')
+                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      .update({
+                    "position": "Centre Mid"
+                   
+                  });
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 43, 42, 42),
                   minimumSize: const Size(100, 60),
@@ -141,7 +187,15 @@ class _PlayerPositionState extends State<PlayerPosition> {
               left: 280,
               top: 300,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  _db
+                      .collection('Players')
+                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      .update({
+                    "position": "Right Mid"
+                   
+                  });
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 43, 42, 42),
                   minimumSize: const Size(100, 60),
@@ -154,7 +208,15 @@ class _PlayerPositionState extends State<PlayerPosition> {
               left: 20,
               top: 470,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  _db
+                      .collection('Players')
+                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      .update({
+                    "position": "Left Back"
+                   
+                  });
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 43, 42, 42),
                   minimumSize: const Size(100, 60),
@@ -167,7 +229,15 @@ class _PlayerPositionState extends State<PlayerPosition> {
               left: 150,
               top: 470,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  _db
+                      .collection('Players')
+                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      .update({
+                    "position": "Centre Back"
+                   
+                  });
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 43, 42, 42),
                   minimumSize: const Size(100, 60),
@@ -180,7 +250,15 @@ class _PlayerPositionState extends State<PlayerPosition> {
               left: 280,
               top: 470,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  _db
+                      .collection('Players')
+                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      .update({
+                    "position": "Right Back"
+                   
+                  });
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 43, 42, 42),
                   minimumSize: const Size(100, 60),
@@ -193,7 +271,15 @@ class _PlayerPositionState extends State<PlayerPosition> {
               left: 150,
               top: 600,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  _db
+                      .collection('Players')
+                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      .update({
+                    "position": "Goal Keeper"
+                   
+                  });
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: const Color.fromARGB(255, 43, 42, 42),
                   onPrimary: const Color(0xFF43AD99),
